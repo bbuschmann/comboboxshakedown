@@ -1,0 +1,26 @@
+﻿<Window x:Class="ComboBoxShakedown.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <ComboBox Height="26" Width="200" ItemsSource="{Binding _internalList}" DisplayMemberPath="Label" 
+                  SelectedValuePath="ID" 
+                  SelectedValue="{Binding SelectedID}" 
+                  SelectedItem="{Binding SelectedModel}" />
+            <Button Width="200" Click="TopButton_Click">Select Item With Query</Button>
+            <Button Width="200" Click="BottomButton_Click">Select Item With Item.ID</Button>
+            <Button Width="200" Click="ClearButton_Click">Clear Selection</Button>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="{Binding SelectedModel.ID}" Width="100" Height="26"/>
+            <Label Content="{Binding SelectedModel.Label}" Width="100" Height="26"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
